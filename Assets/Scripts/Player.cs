@@ -10,16 +10,16 @@ public class Player : MonoBehaviour
     public float speed;
     float nextCloneTime;
     public float cooldown;
-    public GameObject mainCamera;
     public GameObject playerPawn;
     public GameObject bigPawn;
-    public GameObject canvasGame;
 
     public float capacity;
     public Slider capacitySlider;
     public float maxPos;
-
-    void Update()
+    public GameObject player;
+    
+    
+    public void Update()
     { 
         mouseZ = Input.GetAxis("Mouse X");
         capacitySlider.value = capacity;
@@ -34,17 +34,17 @@ public class Player : MonoBehaviour
 
     void CanonMovement() // Kanon hareketleri 
     {
-        if (transform.position.x <= maxPos && transform.position.x >= -maxPos)
+        if (player.transform.position.x <= maxPos && player.transform.position.x >= -maxPos)
         {
-            transform.Translate(0, 0, mouseZ * speed * Time.deltaTime);
+            player.transform.Translate(0, 0, mouseZ * speed * Time.deltaTime);
         }
-        if (transform.position.x > maxPos)
+        if (player.transform.position.x > maxPos)
         {
-            transform.position = new Vector3(maxPos, transform.position.y, transform.position.z);
+            player.transform.position = new Vector3(maxPos, player.transform.position.y, player.transform.position.z);
         }
-        if (transform.position.x < -maxPos)
+        if (player.transform.position.x < -maxPos)
         {
-            transform.position = new Vector3(-maxPos, transform.position.y, transform.position.z);
+            player.transform.position = new Vector3(-maxPos, player.transform.position.y, player.transform.position.z);
         }
     }
 
@@ -53,9 +53,8 @@ public class Player : MonoBehaviour
         if (Time.time > nextCloneTime)
         {
             Instantiate(playerPawn, new Vector3(transform.position.x, 0.1f, transform.position.z + 0.5f), Quaternion.identity);
-            playerSlider();
+            PlayerSlider();
             nextCloneTime = Time.time + cooldown;
-            OnMouseExit();
         }
     }
 
@@ -69,12 +68,8 @@ public class Player : MonoBehaviour
         }
     }
 
-    void OnMouseExit() 
-    {
-        Debug.Log("Mouse is no longer on GameObject.");
-    }
 
-    void playerSlider() //Slider renk geçişi
+    void PlayerSlider() //Slider renk geçişi
     {
         capacity += 1;
 

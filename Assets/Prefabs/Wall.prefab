@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 1225733276419791046}
   m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: -0.5}
   m_LocalPosition: {x: 1, y: 0.3, z: 8.53}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.12}
   m_Children:
   - {fileID: 1225733276843148828}
   m_Father: {fileID: 0}
@@ -110,8 +110,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   multiplyValue: 5
-  playerPawn: {fileID: 2413786715625219956, guid: 01bb80a64c68052488024c463d637930,
-    type: 3}
   valueTxt: {fileID: 1225733276843148831}
 --- !u!54 &1225733276419791068
 Rigidbody:

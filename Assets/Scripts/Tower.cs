@@ -7,6 +7,7 @@ public class Tower : MonoBehaviour
     public int towerHeart;
     public TMPro.TextMeshProUGUI towerHeartTxt;
 
+
     void Update()
     {
         towerHeartTxt.text = towerHeart.ToString();

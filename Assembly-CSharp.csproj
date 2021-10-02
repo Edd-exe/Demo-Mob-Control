@@ -73,6 +73,7 @@
      <Compile Include="Assets\Scripts\GameControl.cs" />
      <Compile Include="Assets\Scripts\Pawn.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
+     <Compile Include="Assets\Scripts\RedWall.cs" />
      <Compile Include="Assets\Scripts\Tower.cs" />
      <Compile Include="Assets\Scripts\Wall.cs" />
      <None Include="Assets\Packages\TextMesh Pro\Shaders\TMPro.cginc" />
