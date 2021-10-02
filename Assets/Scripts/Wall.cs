@@ -26,7 +26,7 @@ public class Wall : MonoBehaviour
         for (int i = 1; i < multiplyValue; i++)
         {
             Instantiate(CO.gameObject,
-                new Vector3(CO.transform.position.x,
+                new Vector3(CO.transform.position.x - 0.1f,
                             CO.transform.position.y,
                             CO.transform.position.z - 0.1f), Quaternion.identity);
         }

@@ -17,18 +17,25 @@ public class Player : MonoBehaviour
     public Slider capacitySlider;
     public float maxPos;
     public GameObject player;
-    
-    
+
+
     public void Update()
-    { 
+    {
         mouseZ = Input.GetAxis("Mouse X");
         capacitySlider.value = capacity;
 
         if (Input.GetMouseButton(0))
         {
             CanonMovement();
-            ClonePawn();
-            CloneBigPawn();
+
+            if (capacity == 26)
+            {
+                CloneBigPawn();
+            }
+            else
+            {
+                ClonePawn();
+            }
         }
     }
 
@@ -60,12 +67,11 @@ public class Player : MonoBehaviour
 
     void CloneBigPawn() //Büyük piyon klonlama
     {
-        if (capacity >= 26)
-        {
-            Debug.Log("worked");
-            Instantiate(bigPawn, new Vector3(transform.position.x, 0.1f, transform.position.z + 0.5f), Quaternion.identity);
-            capacity = 0;
-        }
+        //if (capacity >= 26)
+        //{
+        Instantiate(bigPawn, new Vector3(transform.position.x, 0.1f, transform.position.z + 0.5f), Quaternion.identity);
+        capacity = 0;
+        //}
     }
 
 

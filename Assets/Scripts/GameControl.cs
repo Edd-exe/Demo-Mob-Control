@@ -22,8 +22,8 @@ public class GameControl : MonoBehaviour
 
     void Update()
     {
-        Cursor.lockState = CursorLockMode.Confined;
-        Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Confined;
+        //Cursor.visible = false;
 
         if (gameStart == true)
         {
@@ -43,10 +43,13 @@ public class GameControl : MonoBehaviour
         mainCamera.transform.position = new Vector3(mainCamera.transform.position.x, 6, player.transform.position.z - 2.5f);
 
         if (player.transform.position.z <= playPos)
-        {
+        {   
+            //transform.position = new Vector3(0 , transform.position.y, transform.position.z);
+            player.transform.position = Vector3.Lerp(player.transform.position, new Vector3(0, player.transform.position.y, player.transform.position.z),2 * Time.deltaTime);
             player.transform.Translate(0, 1 * Time.deltaTime, 0);
             canon.transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 90, 0), 3 * Time.deltaTime);
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 90, 0), 3 * Time.deltaTime);
+            playerControl.SetActive(false);
         }
         else
         {
@@ -57,5 +60,13 @@ public class GameControl : MonoBehaviour
 
     }
 
+    void TowerControl()
+    {
+        
+    }
+    
+    //5.7
+    //18.35
+    //
 
 }

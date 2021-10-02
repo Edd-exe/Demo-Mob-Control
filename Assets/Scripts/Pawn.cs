@@ -8,8 +8,9 @@ public class Pawn : MonoBehaviour
     public float speedPawn;
     float towerDistance;
     public Transform tower;
-    float waittime = 0.7f;
+    float waittime = 1f;
     NavMeshAgent Agent;
+    public float towerPosX, towerPosY, towerPosZ; 
 
 
     void Start()
@@ -33,7 +34,7 @@ public class Pawn : MonoBehaviour
 
     void PawnFollow() //rakip merkeze gitmesi için
     {
-        towerDistance = Vector3.Distance(transform.position, tower.position);
+        towerDistance = Vector3.Distance(transform.position, new Vector3(towerPosX, towerPosY, towerPosZ));
         
         if (towerDistance <= 3)
         {
@@ -42,11 +43,20 @@ public class Pawn : MonoBehaviour
         }
     }
 
-    public IEnumerator ChangeTag()
+    public IEnumerator ChangeTag()  // yeni klonlanan nesneler aynı duvara tekrar çarptığında tekrar klonlanmasın diye
     {  
         yield return new WaitForSeconds(waittime);
         this.gameObject.tag = "Player";
         //Debug.Log("tag değişti");
+    }
+
+    private void OnTriggerEnter(Collider other) // Düşman piyon ile çarpışma
+    {
+        if (other.gameObject.tag == "Enemy")
+        {
+            Destroy(other.gameObject);
+            Destroy(this.gameObject);
+        }
     }
 
     
