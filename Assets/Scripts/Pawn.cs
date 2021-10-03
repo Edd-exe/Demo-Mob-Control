@@ -63,7 +63,7 @@ public class Pawn : MonoBehaviour
     {
         if (other.gameObject.name == "Dead Pawn")
         {
-            Destroy(this.gameObject,2);
+            Destroy(this.gameObject,1);
         }
     }
 

@@ -107,3 +107,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   postionTower: 0
+  pawn: {fileID: 2413786715625219956, guid: 01bb80a64c68052488024c463d637930, type: 3}
