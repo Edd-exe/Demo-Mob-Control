@@ -29,7 +29,7 @@ public class Pawn : MonoBehaviour
     void PawnMovement() // hareket
     {
         transform.Translate(0, 0, speedPawn * Time.deltaTime);
-        transform.rotation = Quaternion.Euler(0, 0, 0);
+        transform.rotation = Quaternion.Euler(0, 0, 0); 
     }
 
     void PawnFollow() //rakip merkeze gitmesi için
@@ -39,7 +39,7 @@ public class Pawn : MonoBehaviour
         if (towerDistance <= 3)
         {
             speedPawn = 0;
-            Agent.destination = tower.position;
+            Agent.destination = new Vector3(towerPosX, towerPosY, towerPosZ);
         }
     }
 
@@ -56,6 +56,14 @@ public class Pawn : MonoBehaviour
         {
             Destroy(other.gameObject);
             Destroy(this.gameObject);
+        }
+    }
+
+    private void OnTriggerStay(Collider other) 
+    {
+        if (other.gameObject.name == "Dead Pawn")
+        {
+            Destroy(this.gameObject,2);
         }
     }
 

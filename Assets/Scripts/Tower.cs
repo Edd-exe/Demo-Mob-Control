@@ -8,7 +8,7 @@ public class Tower : MonoBehaviour
     public TMPro.TextMeshProUGUI towerHeartTxt;
     public GameControl playPosGC;
     GameObject towerPosZPawn;
-    public float nextPos, nextTowerPosZ;
+    public float nextPos/*, nextTowerPosZ*/;
     public GameObject nextLevel;
     public GameObject thisLevel;
 
@@ -25,7 +25,7 @@ public class Tower : MonoBehaviour
             playPosGC.GetComponent<GameControl>().playPos = nextPos;
             //towerPosZPawn.GetComponent<Pawn>().towerPosZ = nextTowerPosZ; 
 
-            thisLevel.transform.Translate(0,-1 * Time.deltaTime,0);
+            //thisLevel.transform.Translate(0,-20 * Time.deltaTime, 0);
             Destroy(thisLevel.gameObject, 3);
             nextLevel.SetActive(true);
         }

@@ -1210,6 +1210,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedPawn: 1
   tower: {fileID: 6714509540462210894, guid: 389da70762c210d46b6f4485e4847a0d, type: 3}
+  towerPosX: 0
+  towerPosY: 0.45
+  towerPosZ: 13
 --- !u!195 &-4150071572557489834
 NavMeshAgent:
   m_ObjectHideFlags: 0
